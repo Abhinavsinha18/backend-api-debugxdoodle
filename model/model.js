@@ -50,7 +50,7 @@ let schema = mongoose.Schema({
         type : String,
     },
     image : {
-        type : String,
+        type : Array,
     },  
     content : {
         type : String,
