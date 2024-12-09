@@ -43,6 +43,10 @@ let schema = mongoose.Schema({
         type : Array,
         required : true
     },
+    category :{
+        type : Array,
+        required :true
+        },
     twitterImage : {
         type : String,
     },

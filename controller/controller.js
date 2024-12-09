@@ -1,7 +1,6 @@
 // const { default: app } = require("../config/firebase");
 const connect = require("../database/db");
 const Model = require("../model/model");
-const multer = require('multer');
 
 
 const GetBlogs = async (req, res) => {
@@ -20,7 +19,7 @@ const PostBlog = async (req, res) => {
   try {
     const data = new Model(req.body);
     await data.save();
-    res.status(201).json({ message: "Data Created", Status: true, data });
+    res.status(201).json({ message: "Blog Created", Status: true, data });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -106,7 +105,7 @@ const DeleteBlog = async (req, res) => {
     if (!data) {
       return res.status(404).json({ error: "Not found" });
     }
-    res.json({ message: "Record deleted" });
+    res.json({ message: "Blog deleted" });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -120,7 +119,7 @@ const updateBlog = async (req, res) => {
     const data = await Model.findByIdAndUpdate(id, req.body, {
       new: true,
     });
-    res.json({ message: "Record Updated", Status: true, data });
+    res.json({ message: "Blog Updated", Status: true, data });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
